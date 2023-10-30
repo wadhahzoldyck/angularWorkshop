@@ -1,0 +1,49 @@
+<form  #addForm="ngForm"  (ngSubmit)="add(addForm)" >
+    <div class="form-group">
+      <label for="fn">First name</label>
+      <input type="text" class="form-control" id="fn"  placeholder="first name" name="fn" ngModel required minlength="3" #fn="ngModel" pattern="[a-zA-Z]*">
+      <span class="text text-danger" *ngIf="fn?.errors?.['required'] && fn.touched">Name is Required</span>
+      <span class="text text-danger" *ngIf="fn?.errors?.['minlength'] && fn.touched">Name must be at least 3 character</span>
+    </div>
+    <div class="form-group">
+        <label for="ln">Last name</label>
+        <input type="text" class="form-control" id="ln"  placeholder="last name" name="ln" ngModel required minlength="3" #ln="ngModel">
+        <span class="text text-danger" *ngIf="ln?.errors?.['required'] && ln.touched">last name is Required</span>
+        <span class="text text-danger" *ngIf="ln?.errors?.['minlength'] && ln.touched">last Name must be at least 3 character</span>
+      </div>
+      <div class="form-group">
+        <label for="da">Birthday date</label>
+        <input type="date" class="form-control" id="da"  placeholder="first name" name="da" ngModel required minlength="3" #da="ngModel">
+        <span class="text text-danger" *ngIf="da?.errors?.['required'] && da.touched">Name is Required</span>
+        <span class="text text-danger" *ngIf="da?.errors?.['minlength'] && da.touched">Name must be at least 3 character</span>
+      </div>
+      <div class="form-group">
+        <label for="em">Email</label>
+        <input type="email" class="form-control" id="em"  placeholder="email" name="em" ngModel required  #em="ngModel" pattern="^[a-zA-Z0-9._-]+@gmail.com">
+        <span class="text text-danger" *ngIf="em?.errors?.['required'] && em.touched">Email is Required</span>
+        <span class="alert" *ngIf="em?.errors?.['pattern'] && em.touched">l adresse mail doit se termine par "@gmail.com</span>
+
+      </div>
+      <div class="form-group">
+        <label for="pw">Password</label>
+        <input type="password" class="form-control" id="pw"  placeholder="password" name="pw" ngModel required minlength="8"  #pw="ngModel" pattern="^[a-zA-Z0-9]{8,}?">
+        <span class="text text-danger" *ngIf="pw?.errors?.['required'] && pw.touched">Password is Required</span>
+        <span class="text text-danger" *ngIf="pw?.errors?.['minlength'] && fn.touched">password must be at least 8 character</span>
+        <span class="text text-danger" *ngIf="pw?.errors?.['pattern'] && pw.touched">Caractères    non accentués,</span>
+
+      </div>
+      <div class="form-group">
+        <label for="pr">profession</label>
+        <input type="text" class="form-control" id="pr"  placeholder="professionel" name="pr" ngModel required minlength="3" #pr="ngModel">
+        <span class="text text-danger" *ngIf="pr?.errors?.['required'] && pr.touched">Professionel is Required</span>
+        <span class="text text-danger" *ngIf="pr?.errors?.['minlength'] && pr.touched">Name must be at least 3 character</span>
+      </div>
+      <div class="form-group">
+        <label for="cu">Customer category</label>
+        <input [(ngModel)]="defaultValue" value="customer" type="text" class="form-control" id="cu"  name="cu" ngModel  #cu="ngModel">
+        
+      </div>
+    <br>
+ 
+    <button (click)="add(addForm)"  type="submit" class="btn btn-primary" [disabled]="addForm.invalid">Save</button>
+  </form>
