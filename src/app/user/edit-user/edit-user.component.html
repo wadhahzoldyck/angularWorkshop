@@ -1,2 +1,50 @@
 <p>edit-user works!</p>
-{{id}}
+<form  [formGroup] = "updateForm"   >
+    <div class="form-group">
+      <label for="fn">First name</label>
+      <input type="text" class="form-control" id="fn"  formControlName="fn" pattern="[a-zA-Z]*">
+      <!-- <span class="text text-danger" *ngIf="fn?.errors?.['required'] && fn.touched">Name is Required</span>
+      <span class="text text-danger" *ngIf="fn?.errors?.['minlength'] && fn.touched">Name must be at least 3 character</span> -->
+    </div>
+    <div class="form-group">
+        <label for="ln">Last name</label>
+        <input type="text" class="form-control" id="ln"  formControlName = "ln">
+        <!-- <span class="text text-danger" *ngIf="ln?.errors?.['required'] && ln.touched">last name is Required</span>
+        <span class="text text-danger" *ngIf="ln?.errors?.['minlength'] && ln.touched">last Name must be at least 3 character</span> -->
+      </div>
+      <div class="form-group">
+        <label for="da">Birthday date</label>
+        <input type="date" class="form-control" id="da"  formControlName ="db">
+        <!-- <span class="text text-danger" *ngIf="da?.errors?.['required'] && da.touched">Name is Required</span>
+        <span class="text text-danger" *ngIf="da?.errors?.['minlength'] && da.touched">Name must be at least 3 character</span> -->
+      </div>
+      <div class="form-group">
+        <label for="em">Email</label>
+        <input type="email" class="form-control" formControlName="email">
+        <!-- <span class="text text-danger" *ngIf="em?.errors?.['required'] && em.touched">Email is Required</span>
+        <span class="alert" *ngIf="em?.errors?.['pattern'] && em.touched">l adresse mail doit se termine par "@gmail.com</span> -->
+
+      </div>
+      <div class="form-group">
+        <label for="pw">Password</label>
+        <input type="password" class="form-control" id="pw"  formControlName="pass">
+        <!-- <span class="text text-danger" *ngIf="pw?.errors?.['required'] && pw.touched">Password is Required</span>
+        <span class="text text-danger" *ngIf="pw?.errors?.['minlength'] && fn.touched">password must be at least 8 character</span>
+        <span class="text text-danger" *ngIf="pw?.errors?.['pattern'] && pw.touched">Caractères    non accentués,</span> -->
+
+      </div>
+      <div class="form-group">
+        <label for="pr">profession</label>
+        <input type="text" class="form-control" id="pr"  formControlName="proff">
+        <!-- <span class="text text-danger" *ngIf="pr?.errors?.['required'] && pr.touched">Professionel is Required</span>
+        <span class="text text-danger" *ngIf="pr?.errors?.['minlength'] && pr.touched">Name must be at least 3 character</span> -->
+      </div>
+      <div class="form-group">
+        <label for="cu">Customer category</label>
+        <input type="text" class="form-control" id="cu"  formControlName="accountCatg" disable>
+        
+      </div>
+    <br>
+ 
+    <button (click)="update()"  type="submit" class="btn btn-primary" [disabled]="updateForm.invalid">Save</button>
+  </form>

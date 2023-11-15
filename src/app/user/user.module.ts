@@ -7,7 +7,7 @@ import {UsersComponent} from "./users/users.component";
 import {AdduserComponent} from "./adduser/adduser.component";
 import {EditUserComponent} from "./edit-user/edit-user.component";
 import {InvoiceListComponent} from "../invoice-list/invoice-list.component";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {UserService} from "../Core/Services/user.service";
 
 
@@ -21,7 +21,8 @@ import {UserService} from "../Core/Services/user.service";
   imports: [
     FormsModule,
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    ReactiveFormsModule
   ],
   providers:[InvoiceListComponent,UserService]
 })
