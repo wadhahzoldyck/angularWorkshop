@@ -10,12 +10,11 @@ import { User } from 'src/app/Models/user';
   styleUrls: ['./adduser.component.css'],
 })
 export class AdduserComponent implements OnInit {
-
   defaultValue = 'customer';
-  touched = false ;
+  touched = false;
   constructor(private userService: UserService, private r: Router) {}
 
-  list : User[] = [] ;
+  list: User[] = [];
   user: User = {
     id: 8,
     firstName: 'Mohamed',
@@ -26,9 +25,10 @@ export class AdduserComponent implements OnInit {
     password: 'test',
     picture: 'https://bootdey.com/img/Content/avatar/avatar5.png',
     profession: 'Software Engineer',
+    skills: [],
   };
   ngOnInit(): void {
-    this.userService.getAllUsers().subscribe(data => this.list = data);
+    this.userService.getAllUsers().subscribe((data) => (this.list = data));
   }
   // add() {
   //   this.userService
@@ -38,26 +38,24 @@ export class AdduserComponent implements OnInit {
   //       this.r.navigate(['users']); // You need to wrap this in the subscribe's success callback.
   //     });
   // }
-  add(F:NgForm){
-
-    if(F.valid){
-      const newUser : User = {
-      id: this.list.length + 1, // Calculate the new ID based on the list length
-      firstName: F.value.fn,
-      lastName: F.value.ln,
-      birthDate: F.value.da,
-      accountCategory: F.value.ca,
-      email: F.value.em,
-      password: F.value.pw,
-      picture: "ccccc",
-      profession: F.value.profession,
-
-      }
+  add(F: NgForm) {
+    if (F.valid) {
+      const newUser: User = {
+        id: this.list.length + 1, // Calculate the new ID based on the list length
+        firstName: F.value.fn,
+        lastName: F.value.ln,
+        birthDate: F.value.da,
+        accountCategory: F.value.ca,
+        email: F.value.em,
+        password: F.value.pw,
+        picture: 'ccccc',
+        profession: F.value.profession,
+        skills: [],
+      };
       this.userService.addUser(newUser).subscribe(() => {
         alert('Add User Success');
         this.r.navigate(['users']);
       });
     }
   }
-  
 }

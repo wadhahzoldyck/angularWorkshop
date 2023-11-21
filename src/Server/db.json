@@ -9,7 +9,8 @@
       "email": "mila@kunis.com",
       "password": "test",
       "picture": "https://bootdey.com/img/Content/avatar/avatar3.png",
-      "profession": "Software Engineer"
+      "profession": "Software Engineer",
+      "skills": ["angular", "Spring boot", "Web Developper"]
     },
     {
       "id": 2,
